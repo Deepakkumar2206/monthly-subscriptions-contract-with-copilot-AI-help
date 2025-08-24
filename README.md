@@ -4,9 +4,23 @@
 - It was developed with the help of AI tools - ChatGPT-5 and GitHub Copilot integrated in VSCode.
 - ChatGPT-5 provided structured contract design, explained reverts, and suggested fixes (e.g. adding a receive() function).
 - GitHub Copilot - auto-completed functions, generated test stubs, and even suggested corrections when tests reverted.
-- AI Debugging - Copilot + ChatGPT identified why withdraw() reverted and corrected it automatically.
+- AI Debugging - Copilot + ChatGPT 5 identified why withdraw() reverted and corrected it automatically.
 
 This project shows how AI can accelerate blockchain development by guiding coding, debugging, and testing in real-time.
+
+### Install Copilot Extension in VSCode
+- Open VSCode.
+- Go to Extensions Marketplace (Ctrl+Shift+X).
+- Search “GitHub Copilot” and install it.
+- Install “GitHub Copilot Chat” for AI chat inside VSCode.
+
+### Sign in with GitHub
+- After installing, VSCode will ask you to sign in to GitHub.
+- Click “Sign In” → it will open a GitHub login page.
+- Authorize VSCode to use Copilot with your GitHub account.
+- If you don’t have Copilot subscription, you can start a free trial.
+
+Now Copilot is linked with your GitHub account.
 
 ### Smart Contract: Subscription.sol
 - Users can subscribe by paying the monthly fee.
