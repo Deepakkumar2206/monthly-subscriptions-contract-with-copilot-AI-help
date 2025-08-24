@@ -1,66 +1,53 @@
-## Foundry
+## Subscription Contract (AI-Powered Development)
+### Overview
+- This project demonstrates how to build and test a monthly subscription smart contract using Foundry.
+- It was developed with the help of AI tools - ChatGPT-5 and GitHub Copilot integrated in VSCode.
+- ChatGPT-5 provided structured contract design, explained reverts, and suggested fixes (e.g. adding a receive() function).
+- GitHub Copilot - auto-completed functions, generated test stubs, and even suggested corrections when tests reverted.
+- AI Debugging - Copilot + ChatGPT identified why withdraw() reverted and corrected it automatically.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This project shows how AI can accelerate blockchain development by guiding coding, debugging, and testing in real-time.
 
-Foundry consists of:
+### Smart Contract: Subscription.sol
+- Users can subscribe by paying the monthly fee.
+- Users can renew subscriptions each month.
+- Contract owner can withdraw collected funds.
+- Events track all actions for transparency.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+### Tests: Subscription.t.sol
+- testSubscribe() - ensures new subscription works.
+- testRenew() - checks renewal after 31 days.
+- testWithdraw() - verifies owner can withdraw ETH.
+- test_Revert_SubscribeWithWrongAmount() - reverts on incorrect payment.
+- test_Revert_WithdrawAsNonOwner() - reverts if non-owner tries withdrawal.
 
-## Documentation
+We added receive() in the test contract to accept ETH - this was suggested by Copilot’s error analysis when the withdraw test failed.
 
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
+### Commands
 
 ```shell
-$ forge fmt
+# Install dependencies
+forge install foundry-rs/forge-std
+
+# Build contracts
+forge build
+
+# Run tests (verbose)
+forge test -vv
 ```
 
-### Gas Snapshots
+### Sample Outputs
 
 ```shell
-$ forge snapshot
+Ran 5 tests for test/Subscription.t.sol:SubscriptionTest
+[PASS] testRenew() (gas: 58115)
+[PASS] testSubscribe() (gas: 46463)
+[PASS] testWithdraw() (gas: 56301)
+[PASS] test_Revert_SubscribeWithWrongAmount() (gas: 21408)
+[PASS] test_Revert_WithdrawAsNonOwner() (gas: 49130)
+Suite result: ok. 5 passed; 0 failed
 ```
 
-### Anvil
+## End of the Project
 
-```shell
-$ anvil
-```
 
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
