@@ -16,7 +16,7 @@ This project shows how AI can accelerate blockchain development by guiding codin
 
 ### Sign in with GitHub
 - After installing, VSCode will ask you to sign in to GitHub.
-- Click “Sign In” → it will open a GitHub login page.
+- Click “Sign In” - it will open a GitHub login page.
 - Authorize VSCode to use Copilot with your GitHub account.
 - If you don’t have Copilot subscription, you can start a free trial.
 
